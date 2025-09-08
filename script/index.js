@@ -4,6 +4,11 @@ const loadLessons = () => {
     .then((res) => res.json())
     .then((json) => displayLessons(json.categories))
 };
+
+const loadLevelWord = (id) => {
+    console.log(id);
+}
+
 const displayLessons = (lessons) => {
     // 1. get the container & empty 
     const levelContainer = document.getElementById("level-container");
@@ -14,7 +19,7 @@ const displayLessons = (lessons) => {
        console.log(lesson);
         // 3. create Element 
         const btnDiv = document.createElement("div");
-        btnDiv.innerHTML = `<button class="btn btn-outline  ">
+        btnDiv.innerHTML = `<button onclick="loadLevelWord(${lesson.category_name})" class="btn btn-outline  ">
          ${lesson.category_name}
         </button>
         `;

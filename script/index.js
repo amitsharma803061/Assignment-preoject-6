@@ -1,19 +1,34 @@
-const loadLess = () => {
-    fetch("https://openapi.programming-hero.com/api/plants") // promise of response
-    .then((res) => res.json()) // promise for thr json data
-    .then((json) => displayLesson(json.data));
+
+const loadLessons = () => {
+    fetch("https://openapi.programming-hero.com/api/categories")
+    .then((res) => res.json())
+    .then((json) => displayLessons(json.categories))
 };
-const displayLesson = (lessons) => {
-// 1. get the container & empty 
-const levelContainer =document.getElementById("level-container");
-levelContainer.innerHTML = "";
-// 2. get into every lessons
-for(let lesson of lessons) {
-// 3. create Element
-const btnDiv =document.createElement("div");
-btnDiv.innerHTML = ``;
-}
-    
-    // 4. append into container
+const displayLessons = (lessons) => {
+    // 1. get the container & empty 
+    const levelContainer = document.getElementById("level-container");
+    levelContainer.innerHTML + "";
+
+    // 2. get into evey lessons 
+    for (let lesson of lessons) {
+       console.log(lesson);
+        // 3. create Element 
+        const btnDiv = document.createElement("div");
+        btnDiv.innerHTML = `<button class="btn btn-outline  ">
+         ${lesson.category_name}
+        </button>
+        `;
+    //    // 4. append into container 
+       levelContainer.append(btnDiv);
+    }
+         
+         
 };
-loadLess();
+loadLessons();
+
+
+
+//--- item 2----///
+
+
+
